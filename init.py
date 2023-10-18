@@ -13,12 +13,15 @@ def getVars():
   vars.pop(0)
   return vars
 
+#only run it once
+vars = getVars()
+
 @app.route('/email/', methods=['GET'])
 def send_email():
     user_email = request.args.get('u')
 
     payload = {
-        "apikey": getVars()[0],
+        "apikey": vars[0],
         "from": "no-reply@kinitopet.com",
         "fromName": "KinitoPET",
         "to": user_email,
