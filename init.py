@@ -4,12 +4,12 @@ import requests
 app = Flask(__name__)
 
 def getVars():
-  file = open("key.txt", "r")
+  file = open("keys.txt", "r")
   currLine = " "
   vars = []
   while currLine != "":
     vars.append(currLine)
-    currline = file.readline().split()
+    currline = file.readline().strip()
   vars.pop(0)
   return vars
 
